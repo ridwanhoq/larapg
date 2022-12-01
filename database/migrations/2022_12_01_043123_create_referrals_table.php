@@ -16,7 +16,6 @@ class CreateReferralsTable extends Migration
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('institution_id')->constrained();
-            $table->string('gender')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

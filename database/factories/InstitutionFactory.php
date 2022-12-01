@@ -15,7 +15,7 @@ class InstitutionFactory extends Factory
     public function definition()
     {
         return [
-            'zone_id'   => Zone::inRandomOrder()->pluck('id')
+            'zone_id'   => Zone::all()->random()->id
         ];
     }
 }

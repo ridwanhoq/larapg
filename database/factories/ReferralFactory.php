@@ -15,7 +15,7 @@ class ReferralFactory extends Factory
     public function definition()
     {
         return [
-            'institution_id'    => Institution::first()->id,
+            'institution_id'    => Institution::all()->random()->id,
             'date'              => $this->faker->date()
         ];
     }

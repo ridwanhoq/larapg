@@ -13,3 +13,18 @@ $programStudent = DB::table('referrals')
                                 ->get();
 
 >> need count with 0 values
+
+>> 
+        SELECT id, zt.total, ref.total
+                          FROM zones as z
+                          LEFT JOIN (
+                          	SELECT COUNT(*) as total, zone_id FROM institutions GROUP BY zone_id
+                          ) as zt on zt.zone_id = z.id
+                          LEFT JOIN (
+                          	SELECT COUNT(ref.institution_id) as total, inst.zone_id as zone_id 
+                              FROM institutions as inst
+                              LEFT JOIN referrals as ref on ref.institution_id = inst.id
+                              GROUP BY inst.zone_id
+                          ) as ref on ref.zone_id = z.id;
+
+        

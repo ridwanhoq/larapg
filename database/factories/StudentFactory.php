@@ -15,7 +15,7 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            "institution_id"    => Institution::random()->pluck("id"),
+            "institution_id"    => Institution::all()->random()->id,
             "gender"            => $this->faker->randomElement(["Boy", "Girl"])
         ];
     }
